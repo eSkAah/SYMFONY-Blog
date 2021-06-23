@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Welcome Home Symfo5 {% endblock %}
+
+
+
+{% block body %}
+
+ <h1>Bienvenu sur la page d'accueil de Symfony 5 </h1> 
+ 
+ <div class="row">
+
+  {% for article in article %}
+    <div class="card  mt-3 ms-3 col-md-4" style="width: 18rem;">
+      <p class="date">Redigé le : {{ article.createdAt | date("m/d/Y")}} à {{ article.createdAt | date("H:i") }}</p>
+      <img class="card-img-top" src="/assets/blog/images/{{article.image}}" alt="{{article.image}}">
+      <div class="card-body">
+        <h5 class="card-title">{{ article.name }}</h5>
+        <a href="{{ path('show', {'id':article.id }) }}" class="btn btn-primary">Consulter</a>
+      </div>
+    </div>
+  {% endfor %}
+
+ </div>
+ 
+
+
+
+
+ 
+ {% endblock %}
